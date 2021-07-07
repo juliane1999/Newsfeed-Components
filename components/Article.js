@@ -115,4 +115,10 @@ const data = [
   Refresh the page to see the new article.
 */
 
-const 
+function articleMaker(article){
+  const div = document.createElement('div');
+  const divArticle = document.querySelector('div.articles');
+  divArticle.appendChild(div);
+
+  
+}
