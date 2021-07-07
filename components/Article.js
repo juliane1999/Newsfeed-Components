@@ -118,31 +118,43 @@ const data = [
 function articleMaker(article){
   const div = document.createElement('div');
   const artDiv = document.querySelector('div.articles');
-  artDiv.appendChild(div);
-}
 
-const artTitle = document.createElement('h2');
-artDiv.appendChild(artTitle);
-artTitle.textContent = article.title;
+  const artTitle = document.createElement('h2');
+  artDiv.appendChild(artTitle);
+  artTitle.textContent = article.title;
 
-const artDate = document.createElement('p');
-artDiv.appendChild(artDate);
-artDate.classList.add('date');
-artDate.textContent= article.date;
+  const artDate = document.createElement('p');
+  artDiv.appendChild(artDate);
+  artDate.classList.add('date');
+  artDate.textContent= article.date;
 
-const p1 = document.createElement('p');
-artDiv.appendChild(p1);
-p1.textContent = article.firstParagraph;
+  const p1 = document.createElement('p');
+  artDiv.appendChild(p1);
+  p1.textContent = article.firstParagraph;
 
-const p2 = document.createElement('p');
-artDiv.appendChild(p2);
-p2.textContent = article.secondParagraph;
+  const p2 = document.createElement('p');
+  artDiv.appendChild(p2);
+  p2.textContent = article.secondParagraph;
 
-const p3 = document.createElement('p');
-artDiv.appendChild(p3);
-p3.textContent = article.thirdParagraph;
+  const p3 = document.createElement('p');
+  artDiv.appendChild(p3);
+  p3.textContent = article.thirdParagraph;
+
+  const span = document.createElement('span');
+  artDiv.appendChild(span);
+  span.textContent = '+'
+  span.classList.add('expandButton');
 
 
+  span.addEventListener('click', (e) => {
+    artDiv.classList.toggle('article-open');
+  })
+    return div;
+} 
 
 
+data.forEach(e => {
+  const article = articleMaker(e);
+  document.querySelector('.articles').append(article);
+})
 
