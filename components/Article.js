@@ -117,8 +117,32 @@ const data = [
 
 function articleMaker(article){
   const div = document.createElement('div');
-  const divArticle = document.querySelector('div.articles');
-  divArticle.appendChild(div);
-
-  
+  const artDiv = document.querySelector('div.articles');
+  artDiv.appendChild(div);
 }
+
+const artTitle = document.createElement('h2');
+artDiv.appendChild(artTitle);
+artTitle.textContent = article.title;
+
+const artDate = document.createElement('p');
+artDiv.appendChild(artDate);
+artDate.classList.add('date');
+artDate.textContent= article.date;
+
+const p1 = document.createElement('p');
+artDiv.appendChild(p1);
+p1.textContent = article.firstParagraph;
+
+const p2 = document.createElement('p');
+artDiv.appendChild(p2);
+p2.textContent = article.secondParagraph;
+
+const p3 = document.createElement('p');
+artDiv.appendChild(p3);
+p3.textContent = article.thirdParagraph;
+
+
+
+
+
