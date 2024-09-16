@@ -114,3 +114,50 @@ const data = [
   Step 5: Try adding new article object to the data array. Make sure it is in the same format as the others.
   Refresh the page to see the new article.
 */
+
+function articleMaker(article){
+  const div = document.createElement('div');
+  div.classList.add('article');
+  const artDiv = document.querySelector('div.articles');
+  artDiv.append(div);
+
+  const artTitle = document.createElement('h2');
+  div.appendChild(artTitle);
+  artTitle.textContent = article.title;
+
+  const artDate = document.createElement('p');
+  div.appendChild(artDate);
+  artDate.classList.add('date');
+  artDate.textContent= article.date;
+
+  const p1 = document.createElement('p');
+  div.appendChild(p1);
+  p1.textContent = article.firstParagraph;
+
+  const p2 = document.createElement('p');
+  div.appendChild(p2);
+  p2.textContent = article.secondParagraph;
+
+  const p3 = document.createElement('p');
+  div.appendChild(p3);
+  p3.textContent = article.thirdParagraph;
+
+  const span = document.createElement('span');
+  div.appendChild(span);
+  span.textContent = '+'
+  span.classList.add('expandButton');
+
+
+  span.addEventListener('click', (e) => {
+    div.classList.toggle('article-open');
+  })
+    return div;
+} 
+
+
+data.forEach(e => {
+  const article = articleMaker(e);
+  document.querySelector('div.articles').append(article);
+})
+
+data.push({title:'My Article', date:'July 7th, 2021', firstParagraph:'hello', secondParagraph:'bye', thirdParagraph:'see ya'});
